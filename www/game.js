@@ -72,7 +72,7 @@ var Game = {
 
     on:function()
     {
-    	addEventListener.apply(this, arguments);
+    	return addEventListener.apply(this, arguments);
     },
 
     off:function()
@@ -82,7 +82,7 @@ var Game = {
 
     subscribe:function()
     {
-    	addEventListener.apply(this, arguments);
+    	return addEventListener.apply(this, arguments);
     },
 
     unsubscribe:function()
