@@ -80,6 +80,16 @@ var Game = {
     	removeEventListener.apply(this, arguments);
     }
 
+    subscribe:function()
+    {
+    	addEventListener.apply(this, arguments);
+    }
+
+    unsubscribe:function()
+    {
+    	removeEventListener.apply(this, arguments);
+    }
+
     setUp: function()
     {
         cordova.exec( function( result )
