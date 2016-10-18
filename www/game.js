@@ -28,15 +28,22 @@ var removeEventListener = function( eventName, fn )
     {
         if( events.hasOwnProperty( eventName ) )
         {
-            var eventCallbacks = events[ eventName ];
-            for( var i in eventCallbacks )
-            {
-                if( eventCallbacks[ i ] === fn )
-                {
-                    eventCallbacks.splice( i, 1 );
-                    break;
-                }
-            }
+        	if(typeof fn === 'undefined')
+        	{
+        		events[eventName] = [];
+        	}
+        	else
+        	{
+	            var eventCallbacks = events[ eventName ];
+	            for( var i in eventCallbacks )
+	            {
+	                if( eventCallbacks[ i ] === fn )
+	                {
+	                    eventCallbacks.splice( i, 1 );
+	                    break;
+	                }
+	            }
+        	}
         }
     }
 }
