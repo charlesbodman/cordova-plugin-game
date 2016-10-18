@@ -11,58 +11,64 @@ View [cordova-plugin-game](https://github.com/cranberrygame/cordova-plugin-game)
 ##Improved event usage 
 
 ```js
-var unsubscribe = game.on('setupSuccess',function(result){});
-var unsubscribe = game.on('setupFailed',function(error){});
-var unsubscribe = game.on('loginSuccess',function(playerDetails){})
-var unsubscribe = game.on('loginFailed',function(error){})
-var unsubscribe = game.on('logoutSuccess',function(result){})
-var unsubscribe = game.on('logoutFailed',function(error){})
-var unsubscribe = game.on('submitScoreSuccess',function(result){}  );
-var unsubscribe = game.on('submitScoreSuccess-' + leaderboardId,function(result){});
-var unsubscribe = game.on('submitScoreFailed',function(error){});
-var unsubscribe = game.on('submitScoreFailed-' + leaderboardId,function(error){});
-var unsubscribe = game.on('showLeaderboardSuccess',function(result){});
-var unsubscribe = game.on('showLeaderboardSuccess-' + leaderboardId, function(result){});;
-var unsubscribe = game.on('showLeaderboardFailed',function(error){});
-var unsubscribe = game.on('showLeaderboardFailed-' + leaderboardId, function(error){});
-var unsubscribe = game.on('showLeaderboardsSuccess',function(result){});
-var unsubscribe = game.on('showLeaderboardsFailed',function(error){});
-var unsubscribe = game.on('getPlayerScoreSuccess',function(result){});
-var unsubscribe = game.on('getPlayerScoreSuccess-' + leaderboardId, function(result){});
-var unsubscribe = game.on('getPlayerScoreFailed',function(error){});
-var unsubscribe = game.on('getPlayerScoreFailed-' + leaderboardId, function(error){});
-var unsubscribe = game.on('unlockAchievementSuccess',function(result){} );
-var unsubscribe = game.on('unlockAchievementSuccess-' + achievementId, function(result){} );
-var unsubscribe = game.on('unlockAchievementFailed',function(error){});
-var unsubscribe = game.on('unlockAchievementFailed-' + achievementId, function(error){});
-var unsubscribe = game.on('incrementAchievementSuccess',function(result){});
-var unsubscribe = game.on('incrementAchievementSuccess-' + achievementId,function(result){});
-var unsubscribe = game.on('incrementAchievementFailed',function(result){});
-var unsubscribe = game.on('incrementAchievementFailed-' + achievementId, function(result){});
-var unsubscribe = game.on('showAchievementsSuccess',function(result){});
-var unsubscribe = game.on('showAchievementsFailed',function(result){});
-var unsubscribe = game.on('resetAchievementsSuccess',function(result){});
-var unsubscribe = game.on('resetAchievementsFailed',function(result){});
-var unsubscribe = game.on('getPlayerImageSuccess',function(result){});
-var unsubscribe = game.on('getPlayerImageFailed',function(result){});
+var unsubscribe = game.subscribe('setupSuccess',function(result){});
+var unsubscribe = game.subscribe('setupFailed',function(error){});
+var unsubscribe = game.subscribe('loginSuccess',function(playerDetails){})
+var unsubscribe = game.subscribe('loginFailed',function(error){})
+var unsubscribe = game.subscribe('logoutSuccess',function(result){})
+var unsubscribe = game.subscribe('logoutFailed',function(error){})
+var unsubscribe = game.subscribe('submitScoreSuccess',function(result){}  );
+var unsubscribe = game.subscribe('submitScoreSuccess-' + leaderboardId,function(result){});
+var unsubscribe = game.subscribe('submitScoreFailed',function(error){});
+var unsubscribe = game.subscribe('submitScoreFailed-' + leaderboardId,function(error){});
+var unsubscribe = game.subscribe('showLeaderboardSuccess',function(result){});
+var unsubscribe = game.subscribe('showLeaderboardSuccess-' + leaderboardId, function(result){});;
+var unsubscribe = game.subscribe('showLeaderboardFailed',function(error){});
+var unsubscribe = game.subscribe('showLeaderboardFailed-' + leaderboardId, function(error){});
+var unsubscribe = game.subscribe('showLeaderboardsSuccess',function(result){});
+var unsubscribe = game.subscribe('showLeaderboardsFailed',function(error){});
+var unsubscribe = game.subscribe('getPlayerScoreSuccess',function(result){});
+var unsubscribe = game.subscribe('getPlayerScoreSuccess-' + leaderboardId, function(result){});
+var unsubscribe = game.subscribe('getPlayerScoreFailed',function(error){});
+var unsubscribe = game.subscribe('getPlayerScoreFailed-' + leaderboardId, function(error){});
+var unsubscribe = game.subscribe('unlockAchievementSuccess',function(result){} );
+var unsubscribe = game.subscribe('unlockAchievementSuccess-' + achievementId, function(result){} );
+var unsubscribe = game.subscribe('unlockAchievementFailed',function(error){});
+var unsubscribe = game.subscribe('unlockAchievementFailed-' + achievementId, function(error){});
+var unsubscribe = game.subscribe('incrementAchievementSuccess',function(result){});
+var unsubscribe = game.subscribe('incrementAchievementSuccess-' + achievementId,function(result){});
+var unsubscribe = game.subscribe('incrementAchievementFailed',function(result){});
+var unsubscribe = game.subscribe('incrementAchievementFailed-' + achievementId, function(result){});
+var unsubscribe = game.subscribe('showAchievementsSuccess',function(result){});
+var unsubscribe = game.subscribe('showAchievementsFailed',function(result){});
+var unsubscribe = game.subscribe('resetAchievementsSuccess',function(result){});
+var unsubscribe = game.subscribe('resetAchievementsFailed',function(result){});
+var unsubscribe = game.subscribe('getPlayerImageSuccess',function(result){});
+var unsubscribe = game.subscribe('getPlayerImageFailed',function(result){});
 ```
 
-You can manually unsubscribe through the off method
+You can manually unsubscribe through the unsubcribe/off method
 
 ```js
-game.off(eventName); //Unsubscribe all EventName
+game.unsubscribe(eventName); //Unsubscribe all EventName
 
-game.off(eventName, handle); //Unsubscribe eventName handle
+game.unsubscribe(eventName, handle); //Unsubscribe eventName handle
 
-game.off() //Unsubscribe all events
+game.unsubscribe() //Unsubscribe all events
 ```
 
 
 Need events to fire once? Easy
 
 ```js
-var unsubscribe = game.on('loginSuccess',function(playerDetails){
+var unsubscribe = game.subscribe('loginSuccess',function(playerDetails){
 	unsubscribe(); //Call unsubscribe :)
 })
 ```
 
+
+You can be more terse with 
+```js
+game.on 
+game.off
+```
