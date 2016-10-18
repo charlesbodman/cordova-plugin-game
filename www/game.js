@@ -73,22 +73,22 @@ var Game = {
     on:function()
     {
     	addEventListener.apply(this, arguments);
-    }
+    },
 
     off:function()
     {
     	removeEventListener.apply(this, arguments);
-    }
+    },
 
     subscribe:function()
     {
     	addEventListener.apply(this, arguments);
-    }
+    },
 
     unsubscribe:function()
     {
     	removeEventListener.apply(this, arguments);
-    }
+    },
 
     setUp: function()
     {
